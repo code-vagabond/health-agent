@@ -1,0 +1,19 @@
+{
+  "name": "health-agent",
+  "owner": {
+    "name": "Linh Phung"
+  },
+  "metadata": {
+    "description": "Google Health API agent — read your Fitbit/Pixel health data from the command line",
+    "version": "0.1.0"
+  },
+  "plugins": [
+    {
+      "name": "health-agent",
+      "description": "Pull your own Fitbit / Pixel health data (steps, sleep, exercise, body metrics, profile) from the Google Health API via the health-agent CLI",
+      "source": "./",
+      "strict": false,
+      "skills": ["./"]
+    }
+  ]
+}

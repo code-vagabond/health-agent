@@ -1,0 +1,12 @@
+{
+  "name": "health-agent",
+  "version": "0.1.0",
+  "description": "Pull your own Fitbit / Pixel health data (steps, sleep, exercise, body metrics, profile) from the Google Health API via the health-agent CLI",
+  "author": {
+    "name": "Linh Phung"
+  },
+  "homepage": "https://developers.google.com/health",
+  "license": "MIT",
+  "skills": ["./"],
+  "keywords": ["fitbit", "google-health", "health", "oauth", "ai-agent", "quantified-self"]
+}
