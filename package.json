@@ -1,6 +1,6 @@
 {
   "name": "health-agent",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "CLI + Claude skill to authenticate with the Google Health API and pull your Fitbit / Pixel health data",
   "type": "module",
   "main": "dist/index.js",
