@@ -29,7 +29,12 @@ const dataOpts = (y: Argv) =>
       type: 'string',
     })
     .option('limit', { alias: 'n', describe: 'Max data points (pageSize)', type: 'number' })
-    .option('page-token', { describe: 'Pagination token from a previous response', type: 'string' });
+    .option('page-token', { describe: 'Pagination token from a previous response', type: 'string' })
+    .option('local', {
+      describe: 'Add <field>Local wall-clock times (UTC + the record\'s UtcOffset) next to each UTC timestamp',
+      type: 'boolean',
+      default: false,
+    });
 
 yargs(hideBin(process.argv))
   .scriptName('health-agent')
@@ -67,6 +72,7 @@ yargs(hideBin(process.argv))
         filter: a.filter,
         limit: a.limit,
         pageToken: a.pageToken as string | undefined,
+        local: a.local,
       }),
   )
 

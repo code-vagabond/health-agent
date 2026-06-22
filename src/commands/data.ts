@@ -1,4 +1,5 @@
 import { getDataPoints, rawGet, GOOGLE_WEARABLES, QueryOptions } from '../api.js';
+import { localizeTimes } from '../localize.js';
 
 interface GetArgs {
   reconcile?: boolean;
@@ -7,6 +8,7 @@ interface GetArgs {
   filter?: string;
   limit?: number;
   pageToken?: string;
+  local?: boolean;
 }
 
 function toOpts(args: GetArgs): QueryOptions {
@@ -26,7 +28,8 @@ function emit(data: unknown) {
 
 export async function getData(dataType: string, args: GetArgs) {
   try {
-    emit(await getDataPoints(dataType, toOpts(args)));
+    const data = await getDataPoints(dataType, toOpts(args));
+    emit(args.local ? localizeTimes(data) : data);
   } catch (e) {
     console.error(`❌ ${(e as Error).message}`);
     process.exit(1);
