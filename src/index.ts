@@ -86,6 +86,23 @@ yargs(hideBin(process.argv))
   .command('exercise', 'Fetch exercise/activity sessions (reconciled, Fitbit/Pixel)', dataOpts, (a) =>
     getData('exercise', { ...(a as any), wearables: a.wearables || (!a.reconcile && !a.source) }),
   )
+  .command(
+    ['resting-hr', 'resting-heart-rate', 'rhr'],
+    'Fetch daily resting heart rate (one value per day, calculated from sleep)',
+    dataOpts,
+    (a) =>
+      getData('daily-resting-heart-rate', {
+        ...(a as any),
+        wearables: a.wearables || (!a.reconcile && !a.source),
+      }),
+  )
+  .command(
+    ['heart-rate', 'bpm', 'hr'],
+    'Fetch raw heart-rate samples (latest live BPM readings, not resting HR)',
+    dataOpts,
+    (a) =>
+      getData('heart-rate', { ...(a as any), wearables: a.wearables || (!a.reconcile && !a.source) }),
+  )
 
   .command('profile', 'Fetch your user profile', {}, () => getProfile())
 

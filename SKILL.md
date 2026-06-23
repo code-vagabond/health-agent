@@ -86,6 +86,8 @@ At the browser screen, tell the user to:
 health-agent steps
 health-agent sleep
 health-agent exercise
+health-agent resting-hr     # daily RESTING heart rate (one value/day, calc'd from sleep). Aliases: resting-heart-rate, rhr
+health-agent bpm            # raw live heart-rate samples (latest spot reading, NOT resting). Aliases: heart-rate, hr
 
 # Any data type (kebab-case id): steps, sleep, exercise, body-fat, ...
 health-agent get steps --wearables --limit 50
